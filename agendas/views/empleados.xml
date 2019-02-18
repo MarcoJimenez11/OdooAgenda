@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <act_window id="tienda_proveedores_action" name="empleados"
+                    res_model="agendas.empleados"/>
+
+        <record id="tienda_proveedores_view_tree" model="ir.ui.view">
+            <field name="name">Lista proveedores</field>
+            <field name="model">agendas.empleados</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="cif"/>
+                    <field name="nombre"/>
+                    <field name="direccion"/>
+                </tree>
+            </field>
+        </record>
+		
+		<record id="tienda_clientes_view_form" model="ir.ui.view">
+            <field name="name">Formulario de empleados</field>
+            <field name="model">agendas.empleados</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+						<field name="cif"/>
+						<field name="nombre"/>
+						<field name="direccion"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+		
+        <record id="tienda_proveedores_view_search" model="ir.ui.view">
+            <field name="name">Busqueda empleados</field>
+            <field name="model">agendas.empleados</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="cif"/>
+                    <field name="nombre"/>
+                    <field name="direccion"/>
+                </search>
+            </field>
+        </record>
+        <menuitem name="Agenda" id="tienda_empleados" sequence="10"/>
+        <menuitem name="Inicio" id="menu_inicio" parent="tienda_proveedores" sequence="10"/>
+        <menuitem name="Empleados" id="empleados" action="tienda_proveedores_action" parent="menu_inicio"
+                  sequence="10"/>
+
+    </data>
+</odoo>
